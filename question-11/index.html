@@ -1,27 +1,35 @@
-<!-- Perform the following tasks:
+<!--
+  Perform the following tasks:
 
-Retrieve the value of a node using nodeValue.
-Change the value of a node using nodeValue.
-Retrieve the value of a node attribute.
-Change the value of a node attribute -->
+  Retrieve the value of a node using nodeValue.
+  Change the value of a node using nodeValue.
+  Retrieve the value of a node attribute.
+  Change the value of a node attribute
+-->
 
 <html>
+  <head>
+    <title>JavaScript and the Document Object Model</title>
+  </head>
 
-<head>
-  <title>JavaScript and the Document Object Model</title>
-</head>
-
-<body>
-  <div id="page">
-    <div id="header">
-      <h1 id="title">Page title</h1>
+  <body>
+    <div id="page">
+      <div id="header"><h1 id="title">Page title</h1></div>
+      <div id="content">
+        <h2>Content title</h2>
+        <p>Some copy goes here</p>
+        <p>More copy goes here</p>
+      </div>
     </div>
-    <div id="content">
-      <h2>Content title</h2>
-      <p>Some copy goes here</p>
-      <p>More copy goes here</p>
-    </div>
-  </div>
-</body>
-
+    <input type="button" name="button1" onclick="func()" value="Change" />
+    <script>
+      var body = document.getElementsByTagName('body')[0];
+      var fChldNodeValue = body.firstChild;
+      var button1Attri = document.getElementsByName('button1')[0].attributes;
+      function func() {
+        fChldNodeValue.nodeValue = 'NODE VALUE CHANGED';
+        button1Attri.value.nodeValue = 'CHANGED';
+      }
+    </script>
+  </body>
 </html>

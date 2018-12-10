@@ -12,8 +12,8 @@
       "rating": 5
     },
     "question-11": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": false
     },
     "question-12": {
       "completed": false,
