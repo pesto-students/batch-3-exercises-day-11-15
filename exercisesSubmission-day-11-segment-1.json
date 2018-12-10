@@ -8,8 +8,8 @@
       "rating": 5
     },
     "question-2": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": 5
     },
     "question-3": {
       "completed": false,
