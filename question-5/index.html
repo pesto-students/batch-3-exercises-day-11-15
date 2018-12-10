@@ -26,6 +26,12 @@
   </table>
   <form>
     <input type="button" onclick="changeContent()" value="Change content">
+    <script>
+      function changeContent(row, index,string){
+        var elem = document.getElementById("myTable").rows[0].cells;
+        elem[0].innerHTML = "Changed Content"
+      }
+    </script>
   </form>
 </body>
 

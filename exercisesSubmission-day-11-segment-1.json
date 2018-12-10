@@ -1,27 +1,27 @@
 {
-  "name": "Your name",
-  "email": "Your email",
+  "name": "Ankaj Goyal",
+  "email": "ankajgoyal4@gmail.com",
   "batch": "Batch Number",
   "exercises": {
     "question-1": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": 4
     },
     "question-2": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": 3
     },
     "question-3": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": 4
     },
     "question-4": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": 4
     },
     "question-5": {
-      "completed": false,
-      "rating": null
+      "completed": true,
+      "rating": 4
     },
     "question-6": {
       "completed": false,

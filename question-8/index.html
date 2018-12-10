@@ -23,6 +23,15 @@
       <option>White</option>
     </select>
     <input type="button" onclick="getOptions()" value="Count and Output all items">
+    <script>
+      function getOptions(){
+        let arr = [];
+      let items = document.getElementById("mySelect");
+      for (var i=0; i<=items.length; i++){
+         alert(items.options[i].text+" "+i)
+}
+      }
+    </script>
   </form>
 </body>
 

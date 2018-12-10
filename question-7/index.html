@@ -17,6 +17,12 @@
       <option>Black</option>
     </select>
     <input type="button" onclick="removecolor()" value="Select and Remove">
+    <script>
+    function removecolor(){
+      let item = document.getElementById("colorSelect");
+      item.remove(item.selectedIndex);
+    }
+    </script>
   </form>
 </body>
 

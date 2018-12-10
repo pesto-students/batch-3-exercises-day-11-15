@@ -15,8 +15,22 @@
     <br> Last name:
     <input type="text" name="lname" value="Beckham">
     <br>
-    <input type="submit" value="Submit">
+    <input type="button" onclick="showName()"  value="Submit">
   </form>
+  <h1 id = "name"></h1>
+  <script>
+    function showName(){
+    // var fname = document.getElementsByName("fname").values;
+    // var lname = document.getElementsByName("lname").values;
+    // var h = document.createElement("h1");
+    // var text = document.createTextNode(fname+lname);
+    // h.appendChild(t);
+      var inputs = document.getElementById("form1").elements;
+      var fname = inputs["fname"].value;
+      var lname = inputs["lname"].value;
+      document.getElementById("name").innerHTML = `Your Name is ${fname} ${lname}`;
+    }
+  </script>
 </body>
 
 </html>
