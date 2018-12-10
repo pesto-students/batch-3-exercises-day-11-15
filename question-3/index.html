@@ -1,18 +1,43 @@
-<!-- Here is a sample html file with a submit button. Write a JavaScript function to
-get the value of the href, hreflang, rel, target, and type attributes of the specified link -->
+<!--
+  Here is a sample html file with a submit button. Write a JavaScript function to
+  get the value of the href, hreflang, rel, target, and type attributes of the specified link
+-->
 
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
 
-<head>
-  <meta charset=utf-8 />
-</head>
+  <body>
+    <p>
+      <a
+        id="w3r"
+        type="text/html"
+        hreflang="en-us"
+        rel="nofollow"
+        target="_self"
+        href="https://pesto.tech/"
+        >Pesto</a
+      >
+    </p>
+    <button onclick="getAttributes()">
+      Click here to get attributes value
+    </button>
+    <p id="info"></p>
+    <script>
+      function getAttributes() {
+        const linkElement = document.getElementById('w3r');
+        const type = linkElement.type;
+        const hreflang = linkElement.hreflang;
+        const href = linkElement.href;
+        const rel = linkElement.rel;
+        const target = linkElement.target;
 
-<body>
-  <p>
-    <a id="w3r" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://pesto.tech/">Pesto</a>
-  </p>
-  <button onclick="getAttributes()">Click here to get attributes value</button>
-</body>
-
+        document.getElementById(
+          'info',
+        ).innerHTML = `${href} <br>${hreflang} <br>${rel} <br>${target} <br>${type}`;
+      }
+    </script>
+  </body>
 </html>
