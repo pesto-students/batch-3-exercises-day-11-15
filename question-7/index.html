@@ -18,6 +18,12 @@
     </select>
     <input type="button" onclick="removecolor()" value="Select and Remove">
   </form>
+  <script>
+    function removecolor(){
+      var colour = document.getElementById('colorSelect');
+      colour.remove(colour.selectedIndex);
+    }
+  </script>
 </body>
 
 </html>
