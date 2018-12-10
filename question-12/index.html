@@ -22,6 +22,16 @@ Use the replaceChild method to replace a node. -->
       <p>More copy goes here</p>
     </div>
   </div>
+  <script>
+  var nodeToAppend = document.createElement('div');
+  nodeToAppend.textContent = "New Div";
+  document.body.appendChild(nodeToAppend);
+  var cont = document.getElementById("content");
+  cont.insertBefore(nodeToAppend,cont.childNodes[2]);
+  cont.replaceChild(nodeToAppend,cont.childNodes[0]);
+  cont.removeChild(cont.childNodes[3]);
+
+  </script>
 </body>
 
 </html>
