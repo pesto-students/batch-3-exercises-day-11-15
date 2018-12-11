@@ -38,12 +38,12 @@ class GroceryList extends React.Component {
       We have defined a `grocery` property for each `GroceryListItem`.
     */
     const groceriesComponents = groceries.map(item => ( // eslint-disable-line no-unused-vars
-      <GroceryListItem grocery={item} />
+      <GroceryListItem groceries={item} />
     ));
+    console.log(groceriesComponents);
     // Hint: Don't forget about putting items into `ul`
     return (
       <div>
-        Put your code here
       </div>
     );
   }
@@ -60,7 +60,7 @@ class GroceryListItem extends React.Component {
   render() {
     return (
       <li>
-        Put your code here.
+      {this.props.groceries}
       </li>
     );
   }
