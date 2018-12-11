@@ -11,9 +11,12 @@ class MovieList extends Component {
   // Doesn't this code look familiar to you?
   // Refer to App.css for a list a classes or add one yourself
   render() {
+    const names = ['The Godfather', 'The Dark Knight', 'Man Of Steel', 'The Shawshank Redemption'];
     return (
-      <ul className="FILL ME">
-        <li>The Godfather</li>
+      <ul className="movies-list">
+        {names.map((name, index) => (
+          <li key={index}>{name}</li>
+        ))}
       </ul>
     );
   }

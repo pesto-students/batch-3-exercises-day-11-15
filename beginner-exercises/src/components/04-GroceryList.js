@@ -23,12 +23,47 @@ class GroceryList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      groceries: [{ name: 'Apples' }, { name: 'KitKat' }, { name: 'Red Bull' }],
+      groceries: [
+        { name: 'Apples', bought: 'false' },
+        { name: 'KitKat', bought: 'false' },
+        { name: 'Red Bull', bought: 'false' },
+      ],
     };
+    this.addItem = this.addItem.bind(this);
+    this.inputChanged = this.inputChanged.bind(this);
+    this.clearList = this.clearList.bind(this);
+    this.toggleBuy = this.toggleBuy.bind(this);
+  }
+
+  addItem() {
+    if (this.state.newGrocery.length > 0) {
+      this.setState({ groceries: this.state.groceries.concat({ name: this.state.newGrocery }) });
+    }
+  }
+
+  inputChanged(event) {
+    this.setState({ newGrocery: event.target.value });
+  }
+
+  clearList() {
+    this.setState({ groceries: [] });
+  }
+
+  toggleBuy(index) {
+    const item = this.state.groceries[index];
+    item.bought = !item.bought;
+    this.setState(item);
   }
 
   render() {
     const { groceries } = this.state;
+
+    const clearButton = {
+      marginLeft: '20px',
+      border: '1px solid blue',
+      color: 'blue',
+    };
+
     /*
       Properties are a way to pass parameters to your React components.
       We mentioned this in the third exercise. Properties are to React
@@ -37,13 +72,24 @@ class GroceryList extends React.Component {
       Below you can see how to pass properties to child components.
       We have defined a `grocery` property for each `GroceryListItem`.
     */
-    const groceriesComponents = groceries.map(item => ( // eslint-disable-line no-unused-vars
-      <GroceryListItem grocery={item} />
+    const groceriesComponents = groceries.map((item, index) => (
+      <GroceryListItem
+        grocery={item}
+        onClick={() => this.toggleBuy(index)}
+        className={item.bought === false ? '' : ''}
+      />
     ));
     // Hint: Don't forget about putting items into `ul`
     return (
       <div>
-        Put your code here
+        <ul>{groceriesComponents}</ul>
+        <input type="text" name="newGroceries" onChange={this.inputChanged} />
+        <button type="button" className="button" onClick={this.addItem}>
+          Add item
+        </button>
+        <button type="button" className="button" style={clearButton} onClick={this.clearList}>
+          Clear List
+        </button>
       </div>
     );
   }
@@ -58,11 +104,7 @@ class GroceryListItem extends React.Component {
   }
 
   render() {
-    return (
-      <li>
-        Put your code here.
-      </li>
-    );
+    return <li>{this.props.grocery.name}</li>;
   }
 }
 

@@ -1,7 +1,7 @@
 {
-  "name": "Your name",
-  "email": "Your email",
-  "batch": "Batch Number",
+  "name": "Shikhar Dubey",
+  "email": "shikhar.db@gmail.com",
+  "batch": "3",
   "exercises": {
     "balanced-braces": {
       "completed": false,
