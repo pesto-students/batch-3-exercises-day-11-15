@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 /*
 * Exercise 2:
 *
@@ -18,9 +19,38 @@ import React, { Component } from 'react';
 */
 
 class StopWatch extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      time:0,
+      running:false}
+      this.startTimer = this.startTimer.bind(this);
+      this.clearTimer = this.clearTimer.bind(this);
+  }
+  startTimer= () => {
+    this.setState(state => {
+      if (state.running) {
+        clearInterval(this.timer);
+      } else {
+        const startTime = Date.now() - this.state.time;
+        this.timer = setInterval(() => {
+          this.setState({ time: Date.now() - startTime });
+        });
+      }
+      return { running: !state.running };
+    });
+  };
+  clearTimer = () => {
+    this.setState({ time: 0, running: false });
+  };
   render() {
     return (
-      <div>Stop Watch</div>
+      <div>
+        <h1>Stop Watch</h1>
+        <p>{this.state.time}</p>
+        <button onClick = {this.startTimer}>{this.state.running?"Stop":"Start"}</button>
+        <button onClick = {this.clearTimer}>Clear</button>
+        </div>
     );
   }
 }
