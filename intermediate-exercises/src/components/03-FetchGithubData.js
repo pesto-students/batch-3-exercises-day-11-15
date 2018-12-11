@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 // import PropTypes from 'prop-types';
 // import axios from 'axios';
 
@@ -21,18 +22,31 @@ import React, { Component } from 'react';
  */
 /* eslint-disable react/no-unused-state */
 const GithubRepos = ({ repos }) => {
-  return (
-    <ul>
-      {/* Task: The list of repos here */}
-    </ul>
-  );
-}
+  return <ul>{/* Task: The list of repos here */}</ul>;
+};
 
 // Task: Open the console in the browser. There will be a warning
 // about incorrect prop type for user.
 // Define the correct prop type for the prop `repos`
-GithubRepos.propTypes = {
-
+GithubRepos.propTypes = {};
+const fetchRepo = that => {
+  let url = ` https://api.github.com/users/${that.state.username}/repos`;
+  axios
+    .get(url)
+    .then(response => {
+      console.log('FEtching ' + url);
+      const repository = response.data.map(obj => {
+        return obj.name;
+      });
+      that.setState({
+        repos: repository,
+      });
+      console.log(that.state);
+      console.log(response);
+    })
+    .catch(error => {
+      console.log('Error fetching or parsing data', error);
+    });
 };
 
 /* eslint-disable react/no-multi-comp */
@@ -50,14 +64,11 @@ class UsernameForm extends Component {
         <input
           type="text"
           name="username"
+          value={this.state.username}
+          onChange={event => this.setState({ username: event.target.value })}
         />
-        <button
-          onClick={() => {}}
-        >
-          Get Repos
-        </button>
-        {/* Task: Display the results here. Use GithubRepos Component.
-          It should be a list of repos of the user entered */}
+        <button onClick={() => fetchRepo(this)}>Get Repos</button>
+        {this.state.repos}
       </div>
     );
   }
