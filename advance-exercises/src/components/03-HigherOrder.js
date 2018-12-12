@@ -8,8 +8,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function withMouse(Component) {
-  return Component;
+const withMouse = (App) => {
+  class HOC extends React.Component{
+    constructor(props){
+      super.props();
+      state :{}
+    }
+    mouse = {
+      x:1,
+      y:2
+    }
+    onMouseMove = () => {
+     
+    }
+    render() {
+      return (
+        <App
+        mouse = {this.mouse}
+        onMouseMove = {this.onMouseMove}
+        />
+      )
+    }
+  }
+  return HOC;
 }
 
 class App extends React.Component {
